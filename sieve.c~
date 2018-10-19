@@ -1,0 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int sieve(int target){
+  char numbers[target*ln(target)*1.15];
+}
