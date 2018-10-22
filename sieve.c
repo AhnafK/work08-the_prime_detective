@@ -3,8 +3,8 @@
 #include <math.h>
 
 int sieve(int target){
-  //int  n[] = malloc((int)(target*log(target)*1.15)); //error
-  char numbers[1000];
+  int size = log(target)*target*1.15;
+  char * numbers= calloc(size,sizeof(char));
   numbers[0] = 1;
   numbers[1] = 1;
   numbers[2] = 1;
@@ -12,6 +12,25 @@ int sieve(int target){
     numbers[x] = 1;
   }
 
-  for ()
+  int pos = 1;
+  
+  for(int y = 3; y < size; y += 2){
+    if(!(numbers[y])){
+      y = 1;
+      pos ++;
+      
+      for(int z = y; z < size; z += numbers[y]){
+	if(!(numbers[z])){
+	  numbers[z] = 1;
+	}
+      }
+      
+    }
+
+    if(pos == target){
+      return y;
+    }
+  }
+  
   return 0;
 }
